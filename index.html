@@ -688,7 +688,7 @@
     </div>
   </section>
 
-  <!-- Gallery Section with Scroll-triggered Transitions and Modal Info -->
+   <!-- Gallery Section with Scroll-triggered Transitions and Modal Info -->
   <section id="gallery">
     <h2>Gallery</h2>
     <div class="gallery-grid">
@@ -698,4 +698,208 @@
       <img class="gallery-image" src="https://i.postimg.cc/sX319P62/IMG-20250227-WA0006.jpg" alt="Gallery Photo 4" data-info="Innovative teaching in action." />
       <img class="gallery-image" src="https://i.postimg.cc/wxf3Lmh6/IMG-20250227-WA0004.jpg" alt="Gallery Photo 5" data-info="Celebrating academic excellence." />
       <img class="gallery-image" src="https://i.postimg.cc/6pRQkbF3/IMG-20250227-WA0000.jpg" alt="Gallery Photo 6" data-info="A day at St. Mary's." />
-      <img class="gallery-image" src="https://i.postimg.cc/DyS0gwg1/IMG-20250227-WA0001.jpg" alt="Gallery Photo 7" data-info="Creative l
+      <img class="gallery-image" src="https://i.postimg.cc/DyS0gwg1/IMG-20250227-WA0001.jpg" alt="Gallery Photo 7" data-info="Creative learning environment." />
+      <img class="gallery-image" src="https://i.postimg.cc/VNWk6rfP/IMG-20250227-WA0003.jpg" alt="Gallery Photo 8" data-info="Our state-of-the-art facilities." />
+      <img class="gallery-image" src="https://i.postimg.cc/kXH63b4j/IMG-20250227-WA0009.jpg" alt="Gallery Photo 9" data-info="Inspiring moments captured." />
+      <img class="gallery-image" src="https://i.postimg.cc/k5m5qFdy/stmarys-high-school-20250208-0004.jpg" alt="Gallery Photo 10" data-info="Where future leaders are made." />
+    </div>
+  </section>
+
+  <!-- Staff Section -->
+  <section id="staff">
+    <h2>Our Staff</h2>
+    <div class="staff-cards">
+      <div class="staff-card">
+        <img src="https://i.postimg.cc/VNWk6rfP/IMG-20250227-WA0003.jpg" alt="Head Teacher" />
+        <h3>MULLER</h3>
+        <p>Head Master</p>
+      </div>
+      <div class="staff-card">
+        <img src="https://i.postimg.cc/SxB9NwG9/20250129-113912.avif" alt="Deputy Head" />
+        <h3>Deputy Head</h3>
+        <p>Mr Abdul</p>
+      </div>
+      <div class="staff-card">
+        <img src="https://i.postimg.cc/WpwwYbwH/tygaalphaleos-20250208-0002.jpg" alt="Senior Teacher" />
+        <h3>Seniour Lady</h3>
+        <p>SFT MULLER</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Address: Oyara, Isua Akoko, Ondo State</p>
+    <p>Phone: +2349143628107</p>
+    <p>Email: muller@gmail.com</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="footer-links">
+      <a href="faq">FAQ</a>
+      <a href="/contactus">Contact</a>
+      <a href="/policy">Policies</a>
+      <a href="/terms">Terms</a>
+      <a href="/developer"> Developer</a>
+    </div>
+    <p>&copy; 2025 St. Mary's High School. All rights reserved.</p>
+    <p>Made With Love By <a href="https://wa.me/263719647303?text=hi%20darrell%20i%20would%20want%20you%20to%20create%20me%20a%20site%20like%20that%20of%20st%20marys.%20It%20wonderful" target="_blank" style="color: var(--secondary); text-decoration: none;">Darrell Mucheri</a></p>
+  </footer>
+
+  <!-- Modal for Gallery Info -->
+  <div id="galleryModal" style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
+    <div style="background: #fff; padding:2rem; border-radius:10px; max-width:500px; width:90%; text-align:center; position: relative;">
+      <span id="modalClose" style="position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer;">&times;</span>
+      <img id="modalImage" style="max-width:100%; height:auto; margin-bottom:1rem;" src="" alt="" />
+      <h3 id="modalTitle" style="margin-bottom:1rem; color: var(--primary);"></h3>
+      <p id="modalInfo"></p>
+    </div>
+  </div>
+
+  <!-- Light/Dark Mode Toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <script>
+    // Remove Preloader after load
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.opacity = 0;
+      setTimeout(() => preloader.style.display = 'none', 500);
+    });
+
+    // Hero Slideshow Animation & Navigation
+    const slides = document.querySelectorAll('.slideshow img');
+    let currentSlide = 0;
+    const updateSlide = () => {
+      slides.forEach((img, index) => {
+        img.classList.toggle('active', index === currentSlide);
+      });
+    };
+    let slideInterval = setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide();
+    }, 5000);
+    document.getElementById('prevSlide').addEventListener('click', () => {
+      clearInterval(slideInterval);
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlide();
+    });
+    document.getElementById('nextSlide').addEventListener('click', () => {
+      clearInterval(slideInterval);
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide();
+    });
+
+    // Scroll Down Indicator: Scroll to next section when clicked
+    document.getElementById('scrollDown').addEventListener('click', () => {
+      document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Toggle Subject Dropdown for Faculty Cards
+    function toggleSubjectDropdown(cardId) {
+      const card = document.getElementById(cardId);
+      const dropdown = card.querySelector('.subject-dropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+    document.getElementById('sciencesCard').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSubjectDropdown('sciencesCard');
+    });
+    document.getElementById('artsCard').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSubjectDropdown('artsCard');
+    });
+    document.getElementById('commercialsCard').addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSubjectDropdown('commercialsCard');
+    });
+
+    // Gallery Images: Intersection Observer to trigger slide-in transitions
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const observerOptions = { threshold: 0.1 };
+    const galleryObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Alternate slide direction based on index:
+          const index = Array.from(galleryImages).indexOf(entry.target);
+          if (index % 2 === 0) {
+            entry.target.classList.add('left');
+          } else {
+            entry.target.classList.remove('left');
+          }
+          entry.target.classList.add('visible');
+          galleryObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    galleryImages.forEach(img => galleryObserver.observe(img));
+
+    // Gallery Modal: Open on click to display larger image and info
+    galleryImages.forEach((img) => {
+      img.addEventListener('click', () => {
+        document.getElementById('modalTitle').textContent = img.alt;
+        document.getElementById('modalInfo').textContent = img.getAttribute('data-info');
+        document.getElementById('modalImage').src = img.src;
+        document.getElementById('galleryModal').style.display = 'flex';
+      });
+    });
+    document.getElementById('modalClose').addEventListener('click', () => {
+      document.getElementById('galleryModal').style.display = 'none';
+    });
+    document.getElementById('galleryModal').addEventListener('click', (e) => {
+      if (e.target.id === 'galleryModal') {
+        document.getElementById('galleryModal').style.display = 'none';
+      }
+    });
+
+    // Dropdown Toggle for Student and Admin Portals in Nav
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const toggle = dropdown.querySelector('a');
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      });
+    });
+
+    // Hamburger Menu Toggle for Mobile Navigation
+    const menuBtn = document.getElementById('menu-btn');
+    const nav = document.querySelector('nav');
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuBtn.classList.toggle('active');
+      nav.classList.toggle('active');
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        nav.classList.remove('active');
+        menuBtn.classList.remove('active');
+      }
+    });
+
+    // Light/Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+  </script>
+</body>
+</html>
